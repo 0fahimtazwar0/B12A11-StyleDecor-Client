@@ -8,9 +8,10 @@ const Root = () => {
     <>
       <div className='min-h-svh'>
         <Navbar />
-        <div className={!(location.pathname === "/") && "max-width"}>
+        <div className={`${!(location.pathname === "/") && "max-width"}`}>
           <Outlet />
         </div>
+        <div className='min-h-20'></div>
       </div>
       <Footer />
     </>

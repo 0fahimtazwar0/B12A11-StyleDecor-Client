@@ -1,12 +1,13 @@
 import { RiFacebookFill, RiTwitterXFill, RiYoutubeFill } from "react-icons/ri";
 import { Link } from "react-router";
+import Logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className=' bg-neutral text-neutral-content '>
+    <footer className=' bg-neutral text-neutral-content'>
       <div className='footer sm:footer-horizontal p-10 max-width'>
         <aside>
-          <img src='/favicon.png' alt='StyleDecor Logo' className='size-20' />
+          <img src={Logo} alt='StyleDecor Logo' className='w-15' />
           <p>
             <span className='font-medium'>StyleDecor Management Ltd.</span>
             <br />

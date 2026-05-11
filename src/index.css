@@ -1,13 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @import "daisyui/daisyui.css";
+@plugin "daisyui/index.js" {
+  themes:
+    light --default,
+    night --prefersdark;
+}
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --max-width: 1440px;
+  --padding: 1rem;
 }
 * {
   font-family: "Inter", sans-serif;
 }
 .max-width {
-  @apply max-w-(--max-width) mx-auto;
+  @apply max-w-[calc(var(--max-width)+(var(--padding)*2))] px-(--padding) w-full mx-auto box-border;
+  /* margin-inline: max(1rem, (100dvw - var(--max-width)) / 2); */
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-(--color-primary) mb-12 dark:bg-red-600;
 }
