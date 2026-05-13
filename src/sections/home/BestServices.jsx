@@ -36,6 +36,7 @@ const BestServices = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
         {services.map((single, index) => (
           <div
+            key={index}
             className={`${index == 0 || index == 3 ? "col-span-1 lg:col-span-2" : "col-span-1"} rounded-2xl  overflow-hidden relative group h-72 sm:h-96`}
           >
             <img

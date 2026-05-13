@@ -23,3 +23,13 @@
 .section-heading {
   @apply text-3xl md:text-4xl lg:text-5xl font-bold text-(--color-primary) mb-12 dark:bg-red-600;
 }
+
+.leaflet-control {
+  display: none !important;
+}
+.leaflet-popup-content {
+  margin-inline: 20px !important;
+}
+.leaflet-overlay-pane {
+  filter: blur(4px);
+}

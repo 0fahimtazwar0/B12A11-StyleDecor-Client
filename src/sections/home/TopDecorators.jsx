@@ -1,7 +1,8 @@
 import Marquee from "react-fast-marquee/dist/index.js";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const TopDecorators = () => {
-  const rating = 4.7;
+  // const rating = 4.7;
   const ratingStarCalc = (rating) => {
     if (rating > 5) {
       console.log("invalid rating");
@@ -17,31 +18,31 @@ const TopDecorators = () => {
       return stars;
     }
   };
-  const stars = ratingStarCalc(rating);
+  // const stars = ratingStarCalc(rating);
 
   const data = [
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
-    { no: 1 },
+    { rating: 4.2 },
+    { rating: 2.5 },
+    { rating: 1.3 },
+    { rating: 1 },
+    { rating: 0.2 },
+    { rating: 5 },
   ];
-  return (
-    <div>
-      <h1 className='section-heading'>Our Top Decorators</h1>
-      <div className='flex gap-8'>
-        <Marquee>
-          {data.map(() => (
-            <div className='bg-base-300 p-7 rounded-4xl flex gap-7 w-fit shadow-md'>
+  const component = (
+    <div className='flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row gap-10 ml-0 lg:ml-8 w-full lg:w-fit'>
+      {data.map((single, index) => {
+        const stars = ratingStarCalc(single.rating);
+        return (
+          <div
+            key={index}
+            className='bg-base-300 p-7 rounded-4xl flex flex-col gap-7 shadow-md'
+          >
+            <div className='flex max-[420px]:flex-col gap-7'>
               <div className='flex justify-center'>
                 <img
                   src='https://tr.rbxcdn.com/180DAY-d4a6d1564bf7c0e65447501bdb3cc584/420/420/FaceAccessory/Webp/noFilter'
                   alt="Decorator's Photo"
-                  className='size-24 rounded-full'
+                  className='w-24 aspect-square rounded-full'
                 />
               </div>
               <div className='flex flex-col justify-around'>
@@ -55,6 +56,7 @@ const TopDecorators = () => {
                       const x = i + 1;
                       return (
                         <div
+                          key={i}
                           className={`mask mask-star-2 ${x % 2 == 0 ? "mask-half-2" : "mask-half-1"} bg-amber-500`}
                           aria-label={`${x * 0.5 + " star"}`}
                           aria-current={`${x == stars && true}`}
@@ -63,17 +65,36 @@ const TopDecorators = () => {
                     })}
                   </div>
                   <p className='opacity-70 flex gap-1.25'>
-                    <span>{rating}</span>
+                    <span>{single.rating}</span>
                     <span>(170)</span>
                   </p>
                 </div>
               </div>
             </div>
-          ))}
+            <button className='btn btn-primary w-full flex items-center'>
+              <FaPhoneAlt className='mt-0.75' /> Contact
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+  return (
+    <div>
+      <h1 className='section-heading'>Our Top Decorators</h1>
+      <div id='mobile' className='flex lg:hidden w-full'>
+        {component}
+      </div>
+      <div id='big-screen' className='hidden lg:block'>
+        <Marquee
+          speed={100}
+          gradient
+          gradientColor='var(--color-base-100)'
+          gradientWidth={50}
+          pauseOnHover
+        >
+          {component}
         </Marquee>
-        {/* <Marquee gradient={false} speed={50}>
-          hello
-        </Marquee> */}
       </div>
     </div>
   );
