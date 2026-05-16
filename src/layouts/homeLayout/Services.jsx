@@ -1,6 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 import RangeSlider from "../../sharedComponents/RangeSlider";
 import { RiSidebarFoldLine, RiSidebarUnfoldLine } from "react-icons/ri";
+import { Link } from "react-router";
 
 const Services = () => {
   const card = (
@@ -16,7 +17,9 @@ const Services = () => {
         <h2 className='card-title'>Card Title</h2>
         <div className='card-actions justify-end items-center mt-5'>
           <p className='text-xl font-bold'>$500</p>
-          <button className='btn btn-primary'>Buy Now</button>
+          <Link to={"/services/1"} className='btn btn-primary'>
+            View Details
+          </Link>
         </div>
       </div>
     </div>
