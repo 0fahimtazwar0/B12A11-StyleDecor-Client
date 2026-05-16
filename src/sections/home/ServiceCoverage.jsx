@@ -128,7 +128,7 @@ const ServiceCoverage = () => {
     }, []);
 
     return (
-      <div className='absolute top-4 left-4 z-1000' ref={controlsRef}>
+      <div className='absolute top-4 left-4 z-400' ref={controlsRef}>
         <div className='join join-vertical shadow-lg'>
           <button
             onClick={zoomIn}

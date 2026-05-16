@@ -6,9 +6,9 @@ const Root = () => {
   const location = useLocation();
   return (
     <>
-      <div className='min-h-svh'>
+      <div className='min-h-svh relative'>
         <Navbar />
-        <div className={`${!(location.pathname === "/") && "max-width"}`}>
+        <div className={`${!(location.pathname === "/") && "max-width mt-5"}`}>
           <Outlet />
         </div>
         <div className='min-h-20'></div>
