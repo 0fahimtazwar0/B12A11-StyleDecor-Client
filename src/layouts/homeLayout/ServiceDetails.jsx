@@ -34,7 +34,14 @@ const ServiceDetails = () => {
               <h1 className='text-primary text-4xl font-black'>$499</h1>
             </div>
             <div className='pr-30'>
-              <button className='btn btn-primary w-full'>Book Now</button>
+              <button
+                className='btn btn-primary w-full'
+                onClick={() =>
+                  document.getElementById("booking-details-modal").showModal()
+                }
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>
@@ -66,6 +73,63 @@ const ServiceDetails = () => {
           praesentium laborum velit.
         </p>
       </div>
+
+      <dialog id='booking-details-modal' className='modal'>
+        <div className='modal-box'>
+          <form className='fieldset bg-base-200 border-base-300 rounded-box w-full border p-4'>
+            <legend className='fieldset-legend text-2xl'>Booking Form</legend>
+
+            <label className='label'>Name</label>
+            <input
+              type='text'
+              className='input w-full text-base-content'
+              defaultValue={"Fahim Tazwar"}
+              readOnly
+              disabled
+            />
+
+            <label className='label'>Email</label>
+            <input
+              type='email'
+              className='input w-full text-base-content'
+              defaultValue={"0fahimtazwar0@gmail.com"}
+              readOnly
+              disabled
+            />
+
+            <label className='label'>Phone Number</label>
+            <input
+              type='number'
+              className='input w-full'
+              minLength={11}
+              maxLength={11}
+              defaultValue={"01"}
+              required
+            />
+
+            <label className='label'>Location</label>
+            <input type='text' className='input w-full' required />
+
+            <label className='label'>Date</label>
+            <input type='date' className='input w-full' required />
+
+            <div className='flex items-end gap-5'>
+              <button type='submit' className='btn btn-neutral mt-4 flex-1'>
+                Submit
+              </button>
+              <button
+                className='btn w-full btn-outline flex-1'
+                type='button'
+                onClick={() =>
+                  document.getElementById("booking-details-modal").close()
+                }
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </div>
   );
 };

@@ -2,8 +2,8 @@ import { FaArrowRight } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div>
-      <div className=' bg-base-200 p-10 rounded-4xl shadow-2xl'>
+    <div className='flex items-center absolute inset-0 max-width'>
+      <div className=' bg-base-200 p-10 rounded-4xl shadow-2xl w-full'>
         <h1 className='section-heading mb-2!'>About Us</h1>
         <p className='max-w-2xl text-sm opacity-80'>
           We Make Your Dream Decor a Beautiful Reality

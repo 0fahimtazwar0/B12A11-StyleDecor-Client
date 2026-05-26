@@ -11,8 +11,8 @@ import { Link } from "react-router";
 
 const Contact = () => {
   return (
-    <div>
-      <div className=' bg-base-200 p-10 rounded-4xl shadow-2xl'>
+    <div className='flex items-center absolute inset-0 max-width'>
+      <div className=' bg-base-200 p-10 rounded-4xl shadow-2xl w-full'>
         <h1 className='section-heading mb-2!'>Contact Us</h1>
         <p className='max-w-2xl text-sm opacity-80'>Follow Us Everywhere </p>
         <hr className='my-10 text-neutral-300' />

@@ -2,9 +2,11 @@ import { Link } from "react-router";
 
 const Register = () => {
   return (
-    <div className='flex w-fit items-center gap-10 absolute inset-0 mx-auto'>
+    <div className='flex flex-col md:flex-row w-fit items-center justify-center gap-10 absolute inset-0 max-width'>
       <div>
-        <h2 className='text-5xl font-bold text-primary'>Register Now!</h2>
+        <h2 className='text-4xl md:text-5xl font-bold text-primary'>
+          Register Now!
+        </h2>
         <p className='mt-2.5'>
           Have an account already?{" "}
           <Link to={"/login"} className='link link-primary'>
@@ -12,7 +14,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
-      <fieldset className='fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4'>
+      <fieldset className='fieldset bg-base-200 border-base-300 rounded-box w-full max-w-xs border p-4'>
         <legend className='fieldset-legend'>Register</legend>
 
         <label className='label'>Name</label>

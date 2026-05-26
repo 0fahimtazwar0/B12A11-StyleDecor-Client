@@ -7,6 +7,10 @@ import Contact from "../layouts/homeLayout/Contact";
 import ServiceDetails from "../layouts/homeLayout/ServiceDetails";
 import Login from "../layouts/authLayout/Login";
 import Register from "../layouts/authLayout/register";
+import Dashboard from "../layouts/dashboardLayout/Dashboard";
+import Overview from "../layouts/dashboardLayout/Overview";
+import Profile from "../layouts/dashboardLayout/Profile";
+import ManageBooking from "../layouts/dashboardLayout/ManageBooking";
 
 const Router = createBrowserRouter([
   {
@@ -40,6 +44,15 @@ const Router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "Dashboard",
+        Component: Dashboard,
+        children: [
+          { index: true, Component: Overview },
+          { path: "profile", Component: Profile },
+          { path: "manage-bookings", Component: ManageBooking },
+        ],
       },
     ],
   },
