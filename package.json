@@ -13,6 +13,7 @@
     "@maptiler/leaflet-maptilersdk": "^4.1.1",
     "@tailwindcss/vite": "^4.3.0",
     "daisyui": "^5.5.19",
+    "firebase": "^12.13.0",
     "leaflet": "^1.9.4",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",

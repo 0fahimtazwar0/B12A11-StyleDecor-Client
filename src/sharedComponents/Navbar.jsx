@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { MdDashboard, MdLogin } from "react-icons/md";
+import { MdDashboard, MdLogin, MdLogout, MdPerson } from "react-icons/md";
 import { Link, NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
+import { FaSignOutAlt } from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
 
 const STORAGE_KEY = "theme";
 const DEBOUNCE_MS = 1000;
@@ -40,6 +43,8 @@ const Navbar = () => {
       localStorage.setItem(STORAGE_KEY, next);
     }, DEBOUNCE_MS);
   }
+
+  const { user } = useAuth();
 
   const list = (
     <>
@@ -180,10 +185,37 @@ const Navbar = () => {
             <MdDashboard />
             <span className='hidden md:block'>Dashboard</span>
           </NavLink>
-          <Link to={"/login"} className='btn btn-neutral max-md:btn-circle'>
-            <MdLogin />
-            <span className='hidden md:block'>Login</span>
-          </Link>
+          {user?.displayName ? (
+            <div className='dropdown dropdown-end dropdown-hover'>
+              <div className='avatar m-1' tabIndex={0} role='button'>
+                <div className='h-8 rounded-xl ring-primary ring-offset-base-100 ring-2 ring-offset-2'>
+                  {console.log(user)}
+                  <img referrerPolicy='no-referrer' src={user.photoURL} />
+                </div>
+              </div>
+              <ul
+                tabIndex='-1'
+                className='dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm gap-2'
+              >
+                <li>
+                  <Link className='bg-error text-base-100 font-bold'>
+                    <MdLogout />
+                    Logout
+                  </Link>
+                </li>
+                <li>
+                  <Link className='bg-primary text-base-100 font-bold'>
+                    <MdPerson /> Profile
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to={"/login"} className='btn btn-neutral max-md:btn-circle'>
+              <MdLogin />
+              <span className='hidden md:block'>Login</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>
